@@ -1,4 +1,4 @@
-﻿
+
 using UnityEngine;
 using System.Collections;
 
@@ -13,7 +13,7 @@ public class CameraControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		float
+		fov = defaultFOV;
 	}
 	
 	// Update is called once per frame
@@ -36,6 +36,8 @@ public class CameraControl : MonoBehaviour {
 				Camera.main.fieldOfView = Mathf.Lerp(fov, fov + 1, 1);
 		}
 		if (Input.GetKey(KeyCode.Minus)) {
+			if(fov > 60.0f)
+				Camera.main.fieldOfView = Mathf.Lerp(fov, fov - 1, 1);
 		}
 
 	}
